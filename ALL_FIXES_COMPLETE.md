@@ -2,6 +2,11 @@
 
 ## Issue History & Fixes
 
+### 0️⃣ Missing email-validator Dependency ❌ → ✅
+**Error**: `ModuleNotFoundError: No module named 'email_validator'`  
+**Cause**: Pydantic's `EmailStr` type requires the `email-validator` package  
+**Fixed**: Added `email-validator = "^2.2.0"` to pyproject.toml dependencies
+
 ### 1️⃣ Empty Frontend Dockerfile ❌ → ✅
 **Error**: `the Dockerfile cannot be empty`  
 **Fixed**: Created proper Node.js 18 Dockerfile with npm install
