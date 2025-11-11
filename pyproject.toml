@@ -1,75 +1,47 @@
+[tool.poetry]
+name = "sales-crm"
+version = "0.1.0"
+description = "Minimal Sales CRM proof of concept"
+authors = ["Your Name <your.email@example.com>"]
+readme = "README.md"
+license = "Apache-2.0"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.13"
+fastapi = "^0.115.0"
+uvicorn = {extras = ["standard"], version = "^0.32.0"}
+sqlalchemy = "^2.0.36"
+psycopg2-binary = "^2.9.10"
+pydantic = "^2.10.0"
+pydantic-settings = "^2.6.0"
+python-dotenv = "^1.0.1"
+openai = "^1.54.0"
+rich = "^13.9.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.0"
+pytest-asyncio = "^0.24.0"
+pytest-cov = "^6.0.0"
+httpx = "^0.27.0"
+ruff = "^0.7.0"
+mypy = "^1.13.0"
+types-psycopg2 = "^2.9.21"
+
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-[project]
-name = "env_guard"
-version = "0.2.0"
-description = "A CLI tool for validating .env files against schema rules for safety and correctness."
-authors = [{ name = "Alexander Blaschko-Schänzer", email = "alexander@elementalwebvisions.com" }]
-maintainers = [    {name = "Alexander Blaschko-Schänzer", email = "alexander@elementalwebvisions.com"}]
-readme = "README.md"
-requires-python = ">=3.9"
-license = "Apache-2.0"
-license-files = ["LICENSE", "NOTICE"]
-keywords = ["env", "environment", "validation", "dotenv", "configuration", "cli", "schema", "security"]
-classifiers = [
-    "Development Status :: 4 - Beta",
-    "Intended Audience :: Developers",
-    "Topic :: Software Development :: Quality Assurance",
-    "Topic :: Software Development :: Testing",
-    "Topic :: System :: Systems Administration",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",
-    "Operating System :: OS Independent",
-]
+[tool.ruff]
+line-length = 100
+target-version = "py313"
 
-# runtime dependencies - keep core minimal; optional extras below
-dependencies = [
-    "PyYAML>=6.0.1",
-    "typer>=0.9.0",
-    "rich>=13.7.0",
-]
-
-[project.optional-dependencies]
-dev = [
-    "pytest>=7.0",
-    "ruff>=0.14.2",
-    "mypy>=1.9",
-    "types-PyYAML>=6.0",
-]
-dotenv = [
-    "python-dotenv>=1.2.1",
-]
-telemetry = [
-    "proof-tracker @ git+https://github.com/AlexandersProjects/proof_tracker.git@feat_make_proof_tracker_flexible",
-]
-
-[project.scripts]
-# Console entry point — this function will call sys.exit(code) so the process exit code is consistent
-env-guard = "env_guard.cli:main"
-env_guard = "env_guard.cli:main"
-
-[project.urls]
-Homepage = "https://github.com/yourusername/env_guard"
-Repository = "https://github.com/yourusername/env_guard"
-Issues = "https://github.com/yourusername/env_guard/issues"
-Changelog = "https://github.com/yourusername/env_guard/blob/main/CHANGELOG.md"
-
-[tool.poetry]
-packages = [
-    { include = "env_guard" },
-]
+[tool.mypy]
+python_version = "3.13"
+ignore_missing_imports = true
+check_untyped_defs = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-python_files = ["test_*.py"]
-python_classes = ["Test*"]
-python_functions = ["test_*"]
-# Exclude temporary test files in root directory
-norecursedirs = [".git", ".venv", "build", "dist", "__pycache__"]
+addopts = "-v"
 
