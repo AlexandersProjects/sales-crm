@@ -1,0 +1,30 @@
+env-guard
+Copyright 2025 Alexander Blaschko-Schänzer
+
+This product includes source code and/or makes use of third-party
+open-source software components. The following third-party components
+are included or referenced by this project and are provided under their
+respective licenses. This NOTICE file provides attribution information
+and points to where you can find more detailed licensing information.
+
+Third-party components (informational)
+- PyYAML (https://pyyaml.org/) — YAML parsing for Python
+- Typer (https://typer.tiangolo.com/) — CLI framework built on Click
+- Rich (https://github.com/Textualize/rich) — rich text and formatting
+
+For the full license text of third-party components, please consult
+their respective project pages and the metadata in the built
+distribution (the generated wheel and sdist include license information
+for bundled dependencies where applicable).
+
+Attribution & Notices
+- The primary license for this project is the Apache License, Version
+  2.0. See the included `LICENSE` file for the full license text.
+- Any modifications or derivative works must preserve applicable
+  copyright and license notices as described in the Apache 2.0 terms.
+
+Contact
+If you have questions about licensing or attributions for this project,
+please contact: alexander@elementalwebvisions.com
+
+Generated at: 2025-10-28

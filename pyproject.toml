@@ -1,0 +1,75 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[project]
+name = "env_guard"
+version = "0.2.0"
+description = "A CLI tool for validating .env files against schema rules for safety and correctness."
+authors = [{ name = "Alexander Blaschko-Schänzer", email = "alexander@elementalwebvisions.com" }]
+maintainers = [    {name = "Alexander Blaschko-Schänzer", email = "alexander@elementalwebvisions.com"}]
+readme = "README.md"
+requires-python = ">=3.9"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+keywords = ["env", "environment", "validation", "dotenv", "configuration", "cli", "schema", "security"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Software Development :: Testing",
+    "Topic :: System :: Systems Administration",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: OS Independent",
+]
+
+# runtime dependencies - keep core minimal; optional extras below
+dependencies = [
+    "PyYAML>=6.0.1",
+    "typer>=0.9.0",
+    "rich>=13.7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "ruff>=0.14.2",
+    "mypy>=1.9",
+    "types-PyYAML>=6.0",
+]
+dotenv = [
+    "python-dotenv>=1.2.1",
+]
+telemetry = [
+    "proof-tracker @ git+https://github.com/AlexandersProjects/proof_tracker.git@feat_make_proof_tracker_flexible",
+]
+
+[project.scripts]
+# Console entry point — this function will call sys.exit(code) so the process exit code is consistent
+env-guard = "env_guard.cli:main"
+env_guard = "env_guard.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/yourusername/env_guard"
+Repository = "https://github.com/yourusername/env_guard"
+Issues = "https://github.com/yourusername/env_guard/issues"
+Changelog = "https://github.com/yourusername/env_guard/blob/main/CHANGELOG.md"
+
+[tool.poetry]
+packages = [
+    { include = "env_guard" },
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+# Exclude temporary test files in root directory
+norecursedirs = [".git", ".venv", "build", "dist", "__pycache__"]
+

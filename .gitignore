@@ -1,0 +1,252 @@
+# === Environment Variables ===
+# Never commit real .env files!
+.env
+.env.local
+.env.*.local
+.env.production
+.env.staging
+
+# But DO commit templates
+!example.env
+!.env.example
+!.env.template
+!.env.sample
+
+# === OS-specific ===
+.DS_Store
+.DS_Store?
+Thumbs.db
+ehthumbs.db
+Icon?
+Desktop.ini
+.Trash-*
+~$*
+._*
+
+# === Python ===
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+*.lcov
+hypothesis/
+.pytest_cache/
+test-output/
+junit-*.xml
+
+# === Virtual Environments ===
+.venv/
+venv/
+ENV/
+env.bak/
+__pypackages__/
+
+# === Local Configuration (NOT .env files - see top of file) ===
+.envrc
+*.local
+
+# === YAML Files ===
+# Ignore YAML files by default (may contain secrets)
+*.yaml
+*.yml
+# But ALWAYS include project configuration and schema files
+!pyproject.toml
+!requirements.txt
+!mypy.ini
+!*.schema.yaml
+!*.schema.yml
+!rules.schema.yaml
+!schema.yml
+!.pre-commit-config.yaml
+
+# === IDEs ===
+# VS Code
+.vscode/
+*.code-workspace
+
+# PyCharm / IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse / PyDev
+.project
+.pydevproject
+.metadata/
+.settings/
+
+# Jupyter
+.ipynb_checkpoints
+jupyter_cache/
+*.ipynb_convert
+profile_default/
+.ipython/
+
+# === Logs and temp files ===
+logs/
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+*.orig
+*.rej
+tmp/
+temp/
+
+# === Project-specific temporary files ===
+tmp_*/
+tmp_*.env
+tmp_*.py
+.env.test*
+.env.suggested
+
+# === Coverage & Reports ===
+.coverage
+coverage/
+*.lcov
+.nyc_output/
+reports/
+*.htmlcov
+*.xml
+
+# === Type Checking ===
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+
+# === Linting / Formatting ===
+.pyre/
+ruff_cache/
+.pyright/
+.black/
+isort.*
+pylint.*
+
+# === Docs (keep source .md files, exclude builds) ===
+docs/_build/
+docs/build/
+doc/_build/
+build/docs/
+site/
+# Keep docs/*.md files - they're valuable documentation!
+
+# === Database / Cache ===
+*.db
+*.sqlite
+*.sqlite3
+*.pdb
+__pycache__/
+
+# === Packaging Tools ===
+# Poetry
+poetry.lock
+# Hatch
+.hatch/
+# Pipenv
+Pipfile.lock
+# PDM
+pdm.lock
+__pypackages__/
+
+# === Docker ===
+.dockerignore
+docker-compose.override.yml
+.docker/
+*.pid
+
+# === Security ===
+# Private keys
+*.pem
+*.key
+*.p12
+*.pfx
+
+# === Archives ===
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# === Node / Frontend (if present) ===
+node_modules/
+dist/
+build/
+.cache/
+.eslintcache
+.parcel-cache/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# === Misc ===
+# Editor backup and lock files
+*.kate-swp
+*.sublime-workspace
+*.sublime-project
+*~lock.*
+# System restore files
+*.bak
+*.old
+*.orig
+*.tmp
+
+# === Local temp debug folders ===
+# Ignore temporary debug/demo directories created during development
+tmp_*/
+.tmp_*/
+# Also ignore any env_guard tmp folders
+tmp*/
+
+# === End of file ===

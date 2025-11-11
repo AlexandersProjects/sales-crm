@@ -1,0 +1,14 @@
+required:
+- DATABASE_URL
+- SECRET_KEY
+- PORT
+- DEBUG
+- EMAIL
+types:
+  DATABASE_URL: str
+  SECRET_KEY: str
+  PORT: str
+  DEBUG: bool
+  EMAIL: str
+patterns: {}
+forbidden: []

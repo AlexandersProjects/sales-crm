@@ -1,0 +1,41 @@
+# Dependabot configuration for Python projects
+# Docs: https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  # === 1. Python dependencies (via pip or pyproject.toml) ===
+  - package-ecosystem: "pip"
+    directory: "/"  # Root directory containing pyproject.toml or requirements.txt
+    schedule:
+      interval: "daily"  # Check daily for updates
+      time: "04:00"      # Run early morning UTC
+    commit-message:
+      prefix: "chore"
+      prefix-development: "deps"
+      include: "scope"   # Include dependency name in commit message
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]  # Ignore breaking updates
+    allow:
+      - dependency-type: "all"  # Include both runtime and dev dependencies
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "automated-update"
+      - "security"
+    target-branch: "develop"  # Same as your Java workflow
+
+  # === 2. GitHub Actions updates (for CI/CD workflows) ===
+  - package-ecosystem: "github-actions"
+    directory: "/"  # Looks in .github/workflows/
+    schedule:
+      interval: "weekly"  # Weekly check for actions updates
+      day: "monday"
+      time: "04:00"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+    labels:
+      - "ci"
+      - "automation"
+    target-branch: "develop"

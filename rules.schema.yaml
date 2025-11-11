@@ -1,0 +1,15 @@
+required:
+  - DATABASE_URL
+  - SECRET_KEY
+  - MISSING_KEY
+  - PORT
+
+types:
+  PORT: int
+
+
+patterns:
+  EMAIL: "^[\\w\\.-]+@[\\w\\.-]+\\.\\w+$"
+
+forbidden:
+  - DEBUG=True

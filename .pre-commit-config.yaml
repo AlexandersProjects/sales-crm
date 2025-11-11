@@ -1,0 +1,11 @@
+repos:
+  - repo: local
+    hooks:
+      - id: env-guard
+        name: env-guard
+        entry: python -m env_guard.cli check
+        language: system
+        files: '\.env$|\.env\.local$|^\.env'
+        exclude: 'example\.env$|\.env\.example$|\.env\.template$|\.env\.sample$'
+        stages: [pre-commit]
+
