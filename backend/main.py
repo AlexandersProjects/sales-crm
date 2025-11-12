@@ -16,7 +16,7 @@ import models
 import schemas
 from database import engine, get_db
 
-# Read version from pyproject.toml
+# Read version from pyproject.toml so we don't have to update it in multiple places
 def get_version() -> str:
     """Read version from pyproject.toml"""
     try:
@@ -25,11 +25,11 @@ def get_version() -> str:
             pyproject_data = tomllib.load(f)
             return pyproject_data["tool"]["poetry"]["version"]
     except Exception:
-        return "0.1.0"  # Fallback version
+        return "0.1.0"
 
 VERSION = get_version()
 
-# Create tables
+# Create all tables on startup
 models.Base.metadata.create_all(bind=engine)
 
 # Initialize app
