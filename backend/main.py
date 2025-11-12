@@ -4,6 +4,8 @@ FastAPI Sales CRM - Minimal MVP
 import os
 import json
 from typing import List, Optional
+from pathlib import Path
+import tomllib
 from fastapi import FastAPI, Depends, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
@@ -14,11 +16,24 @@ import models
 import schemas
 from database import engine, get_db
 
+# Read version from pyproject.toml
+def get_version() -> str:
+    """Read version from pyproject.toml"""
+    try:
+        pyproject_path = Path(__file__).parent.parent / "pyproject.toml"
+        with open(pyproject_path, "rb") as f:
+            pyproject_data = tomllib.load(f)
+            return pyproject_data["tool"]["poetry"]["version"]
+    except Exception:
+        return "0.1.0"  # Fallback version
+
+VERSION = get_version()
+
 # Create tables
 models.Base.metadata.create_all(bind=engine)
 
 # Initialize app
-app = FastAPI(title="Sales CRM API", version="0.1.0")
+app = FastAPI(title="Sales CRM API", version=VERSION)
 
 # CORS
 app.add_middleware(
@@ -37,12 +52,12 @@ if OPENAI_API_KEY:
 
 @app.get("/")
 async def root():
-    return {"message": "Sales CRM API", "version": "0.1.0", "docs": "/docs"}
+    return {"message": "Sales CRM API", "version": VERSION, "docs": "/docs"}
 
 
 @app.get("/health")
 async def health():
-    return {"status": "healthy"}
+    return {"status": "healthy", "version": VERSION}
 
 
 # Tenants
