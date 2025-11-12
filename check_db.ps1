@@ -16,5 +16,5 @@ try {
 }
 
 # Run the script
-py check_database.py
+py tests\check_database.py
 

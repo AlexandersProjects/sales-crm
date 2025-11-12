@@ -16,5 +16,5 @@ try {
 }
 
 # Run the script
-py test_email_generation.py
+py tests\test_email_generation.py
 

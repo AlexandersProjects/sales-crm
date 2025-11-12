@@ -53,13 +53,13 @@ docker-compose up
 py -m pip install rich sqlalchemy psycopg2-binary python-dotenv openai
 
 # Run checker
-py check_database.py
+py tests\check_database.py
 ```
 
 ### Test Email Generation
 ```powershell
 # Make sure OPENAI_API_KEY is in .env file
-py test_email_generation.py
+py tests\test_email_generation.py
 ```
 
 ---

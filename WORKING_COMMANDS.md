@@ -16,12 +16,12 @@ py -m pip install rich sqlalchemy psycopg2-binary python-dotenv openai
 
 ### Step 2: Check Database
 ```powershell
-py check_database.py
+py tests\check_database.py
 ```
 
 ### Step 3: Test Email Generation (Optional - needs OpenAI key)
 ```powershell
-py test_email_generation.py
+py tests\test_email_generation.py
 ```
 
 ---

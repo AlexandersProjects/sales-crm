@@ -150,9 +150,10 @@ pytest = "^8.3.0"
 ### In Docker
 
 **Our Dockerfile:**
+
 ```dockerfile
 # Copy Poetry config
-COPY pyproject.toml poetry.lock* ./
+COPY ../pyproject.toml poetry.lock* ./
 
 # Install Poetry
 RUN curl -sSL https://install.python-poetry.org | python3 -

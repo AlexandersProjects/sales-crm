@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './LeadForm.css';
 
+// Lead status options
 const STATUSES = ['new', 'contacted', 'qualified', 'proposal', 'negotiation', 'won', 'lost'];
 
 function LeadForm({ lead, onSubmit, onCancel }) {

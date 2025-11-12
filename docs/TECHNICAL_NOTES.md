@@ -161,13 +161,13 @@ WORKDIR /app
 RUN curl -sSL https://install.python-poetry.org | python3 -
 
 # Copy pyproject.toml from context root (project root)
-COPY pyproject.toml poetry.lock* ./
+COPY ../pyproject.toml poetry.lock* ./
 
 # Install dependencies
 RUN poetry install --only main
 
 # Copy backend code
-COPY backend/ ./backend/
+COPY ../backend ./backend/
 
 # Work from backend directory
 WORKDIR /app/backend
