@@ -13,9 +13,13 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'backend'))
 from rich.console import Console
 from rich.panel import Panel
 from rich.markdown import Markdown
+from dotenv import load_dotenv
 import openai
 
 console = Console()
+
+# Load .env file
+load_dotenv()
 
 # Get OpenAI API key
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")

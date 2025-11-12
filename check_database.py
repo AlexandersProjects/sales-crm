@@ -13,8 +13,12 @@ from sqlalchemy import create_engine, text
 from rich.console import Console
 from rich.table import Table
 from rich.panel import Panel
+from dotenv import load_dotenv
 
 console = Console()
+
+# Load .env file
+load_dotenv()
 
 # Database URL
 DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://postgres:postgres@localhost:5432/sales_crm")
